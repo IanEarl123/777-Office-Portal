@@ -30,12 +30,12 @@
         <p class="text-sm text-slate-500 mt-2">Daily Monitoring</p>
       </a>
 
-      <!-- Tarkie Request -->
+      <!-- Tarkie Request (UPDATED ICON) -->
       <a href="https://forms.cloud.microsoft/r/1RPRSPc2wH" target="_blank"
          class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 text-center">
-        <div class="text-4xl mb-4">T</div>
+        <div class="text-4xl mb-4">🪪</div>
         <h2 class="font-semibold text-slate-700">Tarkie Credential Request</h2>
-        <p class="text-sm text-slate-500 mt-2">Daily Monitoring</p>
+        <p class="text-sm text-slate-500 mt-2">ID / Access Request</p>
       </a>
 
       <!-- Absent Request -->
@@ -62,9 +62,120 @@
         <p class="text-sm text-slate-500 mt-2">Stock Monitoring</p>
       </a>
 
+      <!-- Renewal Card -->
+      <button onclick="openModal()"
+        class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 text-center w-full">
+        <div class="text-4xl mb-4">🔁</div>
+        <h2 class="font-semibold text-slate-700">Renewal</h2>
+        <p class="text-sm text-slate-500 mt-2">Select Store</p>
+      </button>
+
+      <!-- 777 Admin Card -->
+      <button onclick="openAdminModal()"
+        class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 text-center w-full">
+        <div class="text-4xl mb-4">🔒</div>
+        <h2 class="font-semibold text-slate-700">777 Admin</h2>
+        <p class="text-sm text-slate-500 mt-2">Restricted Access</p>
+      </button>
+
     </div>
 
   </div>
+
+  <!-- Renewal Modal -->
+  <div id="renewalModal"
+    class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-2xl p-6 w-[90%] max-w-sm text-center shadow-xl">
+
+      <h2 class="text-lg font-semibold mb-4 text-slate-700">
+        Choose Renewal Type
+      </h2>
+
+      <div class="flex flex-col gap-3">
+
+        <a href="https://your-sm-link.com" target="_blank"
+          class="py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition">
+          SM
+        </a>
+
+        <button class="py-2 rounded-lg bg-slate-200 hover:bg-slate-300 transition">
+          Robinsons
+        </button>
+
+        <button class="py-2 rounded-lg bg-slate-200 hover:bg-slate-300 transition">
+          Puregold
+        </button>
+
+        <button class="py-2 rounded-lg bg-slate-200 hover:bg-slate-300 transition">
+          Generic
+        </button>
+
+      </div>
+
+      <button onclick="closeModal()"
+        class="mt-5 text-sm text-slate-500 hover:text-slate-700">
+        Cancel
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Admin Warning Modal -->
+  <div id="adminModal"
+    class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-2xl p-6 w-[90%] max-w-sm text-center shadow-xl">
+
+      <div class="text-4xl mb-3">⚠️</div>
+
+      <h2 class="text-lg font-semibold text-red-500">
+        Access Denied
+      </h2>
+
+      <p class="text-slate-600 mt-2">
+        Sorry, you don't have access to this.
+      </p>
+
+      <button onclick="closeAdminModal()"
+        class="mt-5 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+        OK
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const modal = document.getElementById('renewalModal');
+    const adminModal = document.getElementById('adminModal');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openAdminModal() {
+      adminModal.classList.remove('hidden');
+      adminModal.classList.add('flex');
+    }
+
+    function closeAdminModal() {
+      adminModal.classList.add('hidden');
+      adminModal.classList.remove('flex');
+    }
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+      if (e.target === adminModal) closeAdminModal();
+    });
+  </script>
 
 </body>
 </html>
